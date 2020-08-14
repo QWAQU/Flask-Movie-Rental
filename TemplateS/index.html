@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<h1> AFRICAN GIANT MOVIE RENTALS</h1>
+
+<hr>
+
+<div>
+
+    <span>Action</span>
+    &verbar;
+
+    <form action="/new-movie" class="d-inline" method="GET">
+        <input type="submit" class="btn btn-success btn-sm" value="new-movie">
+    </form>
+
+    <form action="/search" class="d-inline" method="POST">
+        <input type="text" class="form control" placeholder="search a movie by title">
+    </form>
+</div>
+<hr>
+
+<table class="table table-hoven">
+    <thead>
+        <th>#</th>
+        <th>title</th>
+        <th>Release Year</th>
+        <th>Budget</th>
+        <th>Cast</th>
+    </thead>
+    <tbody>
+
+        {% for m in movies %}
+        <tr>
+
+            <td>{{m.title}}</td>
+            <td>{{m.year}}</td>
+            <td>{{m.budget}}</td>
+            <td>{{m.cast}}</td>
+
+        </tr>
+        
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}
