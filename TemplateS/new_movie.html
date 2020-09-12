@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block main %}
+<div class="mt-5">
+  <h2>Add movie</h2>
+  <hr />
+
+  {% if error %}
+
+  <div class="alert alert-warning p-3 text-centre">
+    {{error}}
+  </div>
+  {% endif %} {% if success %}
+  <div class="alert alert-success p-3 text-centre">
+    {{success}}
+  </div>
+  {% endif %}
+
+  <div class="rounded shadow p-3">
+    <form action="/new-movie" method="post">
+      <lable for="title">Movie Title</lable>
+      <input type="text" name="title" id="title" class="form-control" />
+
+      <lable for="year">Movie Release Year </lable>
+      <input type="number" name="year" id="year" class="form-control" />
+
+      <lable for="budget">Budget </lable>
+      <input type="text" name="budget" id="budget" class="form-control" />
+
+      <lable for="cast">Cast </lable>
+      <input
+        type="text"
+        name="cast"
+        id="cast "
+        class="form-control"
+        placeholder="who are the main cast. Separate with a comma"
+      />
+      <input
+        type="submit"
+        value="Add Movie"
+        class="btn btn-sm btn-success mt-3"
+      />
+
+      <a href="/" class="btn btn-sm btn-primary mt-3">Done</a>
+    </form>
+  </div>
+
+  {% endblock %}
+</div>
